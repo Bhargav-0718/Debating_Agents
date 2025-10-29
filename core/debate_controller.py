@@ -1,0 +1,112 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import random
+from crewai import Agent, Task, Crew, Process
+from textwrap import dedent
+from agents.debate_agents import agent_pool
+from agents.judge_agents import judge_pool
+
+
+# --- Helper Function ---
+def run_task(agent, prompt, context=""):
+    """Run a single debate round for an agent."""
+    task = Task(
+        description=dedent(prompt),
+        agent=agent.agent,
+        expected_output="A detailed and logically sound debate response."
+    )
+    crew = Crew(
+        agents=[agent.agent],
+        tasks=[task],
+        process=Process.sequential,
+        verbose=False
+    )
+    result = crew.kickoff(inputs={"context": context})
+    return result
+
+
+# --- Streamlit / Programmatic Debate Runner ---
+def run_debate(debater1_name, debater2_name, stance1, judge_name, topic):
+    """Non-interactive debate runner for Streamlit or APIs."""
+    print("\n🎙️ === AI Debate Simulator (Streamlit Mode) ===\n")
+
+    debater1 = next(a for a in agent_pool if a.name == debater1_name)
+    debater2 = next(a for a in agent_pool if a.name == debater2_name)
+    judge = next(j for j in judge_pool if j.name == judge_name)
+
+    debater1.assign_stance(stance1)
+    debater2.assign_stance("against" if stance1 == "for" else "for")
+
+    debate_history = []
+
+    # Round 1: Openings
+    opening_for_prompt = f"""
+    You are {debater1.name}. You are arguing {debater1.stance.upper()} the motion: "{topic}".
+    Present your opening statement in 6-8 sentences, establishing your core reasoning.
+    """
+    opening_against_prompt = f"""
+    You are {debater2.name}. You are arguing {debater2.stance.upper()} the motion: "{topic}".
+    Present your opening statement in 6-8 sentences, presenting your stance clearly.
+    """
+
+    arg_for = run_task(debater1, opening_for_prompt)
+    arg_against = run_task(debater2, opening_against_prompt)
+
+    # Round 2: Rebuttals
+    rebuttal_for_prompt = f"""
+    You are {debater1.name}. You are arguing {debater1.stance.upper()} the motion: "{topic}".
+    Your opponent said:\n{arg_against}
+    Write a rebuttal.
+    """
+    rebuttal_against_prompt = f"""
+    You are {debater2.name}. You are arguing {debater2.stance.upper()} the motion: "{topic}".
+    Your opponent said:\n{arg_for}
+    Write a rebuttal.
+    """
+
+    rebuttal_for = run_task(debater1, rebuttal_for_prompt)
+    rebuttal_against = run_task(debater2, rebuttal_against_prompt)
+
+    # Round 3: Closings
+    closing_for_prompt = f"""
+    You are {debater1.name}. Closing argument for "{topic}".
+    Debate so far:\n{debate_history}
+    """
+    closing_against_prompt = f"""
+    You are {debater2.name}. Closing argument for "{topic}".
+    Debate so far:\n{debate_history}
+    """
+
+    closing_for = run_task(debater1, closing_for_prompt)
+    closing_against = run_task(debater2, closing_against_prompt)
+
+    # Verdict
+    verdict_prompt = f"""
+    You are {judge.name}, the judge known for {judge.judging_style}.
+    Debate Transcript:
+    {debate_history}
+    Decide the winner objectively and provide reasoning.
+    """
+
+    verdict = run_task(judge, verdict_prompt)
+
+    return f"""
+    🧠 Topic: {topic}
+
+    {debater1.name} ({debater1.stance}): {arg_for}
+
+    {debater2.name} ({debater2.stance}): {arg_against}
+
+    {debater1.name} Rebuttal: {rebuttal_for}
+
+    {debater2.name} Rebuttal: {rebuttal_against}
+
+    {debater1.name} Closing: {closing_for}
+
+    {debater2.name} Closing: {closing_against}
+
+    🏆 Verdict by {judge.name}:
+    {verdict}
+    """

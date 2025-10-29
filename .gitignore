@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+# Virtual environment
+venv/
+.env/
+
+# Streamlit cache
+.streamlit/
+
+# Logs and system files
+*.log
+.DS_Store
+Thumbs.db
+
+# CrewAI cache or models
+.cache/
+outputs/

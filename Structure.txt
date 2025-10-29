@@ -1,0 +1,24 @@
+ai_debate_arena/
+│
+├── app.py
+│
+├── core/
+│   └── debate_controller.py
+│
+├── agents/
+│   ├── debate_agents.py
+│   └── __init__.py
+│
+├── data/
+│   └── debates/
+│
+├── prompts/
+│   ├── debate_prompt.txt
+│   ├── judge_prompt.txt
+│   └── system_prompt.txt
+│
+├── config/
+│   └── settings.yaml
+│
+├── requirements.txt
+└── .env
