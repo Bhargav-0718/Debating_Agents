@@ -110,3 +110,5 @@ def run_debate(debater1_name, debater2_name, stance1, judge_name, topic):
     🏆 Verdict by {judge.name}:
     {verdict}
     """
+
+

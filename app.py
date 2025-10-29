@@ -10,6 +10,9 @@ from agents.debate_agents import agent_pool
 from agents.judge_agents import judge_pool
 from crewai import Crew, Process, Task
 
+# ------------------------------------------------------------
+# 🌐 Streamlit Setup
+# ------------------------------------------------------------
 st.set_page_config(page_title="AI Debate Simulator", page_icon="🎙️", layout="wide")
 st.title("🎙️ AI Debate Simulator")
 
@@ -24,8 +27,9 @@ with tab1:
     to argue, refute, and persuade on any topic of your choice!
     """)
 
-    # Sidebar Configuration
+    # Sidebar
     st.sidebar.header("⚙️ Debate Configuration")
+
     debater1 = st.sidebar.selectbox("Select Debater 1", [a.name for a in agent_pool])
     debater2 = st.sidebar.selectbox("Select Debater 2", [a.name for a in agent_pool if a.name != debater1])
 
@@ -37,18 +41,24 @@ with tab1:
 
     start_button = st.button("🔥 Start Debate")
 
+    # ------------------------------------------------------------
+    # Debate Logic
+    # ------------------------------------------------------------
     if start_button:
         if not topic.strip():
             st.error("Please enter a debate topic before starting!")
             st.stop()
 
+        # Retrieve selected agents
         debater1_obj = next(a for a in agent_pool if a.name == debater1)
         debater2_obj = next(a for a in agent_pool if a.name == debater2)
         judge_obj = next(j for j in judge_pool if j.name == judge_name)
 
+        # Assign stances
         debater1_obj.assign_stance(stance1)
         debater2_obj.assign_stance(stance2)
 
+        # Setup display
         st.subheader("🎯 Debate Setup")
         st.write(f"**Topic:** {topic}")
         st.write(f"**{debater1_obj.name}** arguing **{stance1.upper()}** the motion.")
@@ -56,15 +66,14 @@ with tab1:
         st.write(f"**Judge:** {judge_obj.name}")
         st.divider()
 
-        # ---- Debate Transcript Collector ----
         debate_history = []
 
         def run_task(agent, prompt, context=""):
-            """Run a CrewAI task for one agent."""
+            """Execute one debate round for an agent."""
             task = Task(
                 description=dedent(prompt),
                 agent=agent.agent,
-                expected_output="A logical and well-structured debate response."
+                expected_output="A coherent, logically structured debate response."
             )
             crew = Crew(
                 agents=[agent.agent],
@@ -72,17 +81,17 @@ with tab1:
                 process=Process.sequential,
                 verbose=False
             )
-            result = crew.kickoff(inputs={"context": context})
-            return result
+            return crew.kickoff(inputs={"context": context})
 
+        # ------------------ Opening Statements ------------------
         with st.spinner("🧠 Generating Opening Statements..."):
             opening_for_prompt = f"""
             You are {debater1_obj.name}, arguing {stance1.upper()} the motion: "{topic}".
-            Give your opening statement (6-8 sentences) laying out your main reasoning.
+            Present your opening statement in 6–8 sentences, focusing on reasoning and clarity.
             """
             opening_against_prompt = f"""
             You are {debater2_obj.name}, arguing {stance2.upper()} the motion: "{topic}".
-            Give your opening statement (6-8 sentences) with your counter stance.
+            Present your opening statement in 6–8 sentences, focusing on reasoning and clarity.
             """
 
             arg_for = run_task(debater1_obj, opening_for_prompt)
@@ -95,16 +104,17 @@ with tab1:
         st.markdown(f"**{debater2_obj.name} (AGAINST):** {arg_against}")
         st.divider()
 
+        # ------------------ Rebuttals ------------------
         with st.spinner("🤺 Generating Rebuttals..."):
             rebuttal_for_prompt = f"""
             You are {debater1_obj.name}, arguing {stance1.upper()} the motion: "{topic}".
-            Your opponent said:\n{arg_against}
-            Write your rebuttal in 4-6 sentences.
+            Your opponent said:\n\n{arg_against}\n\n
+            Write your rebuttal in 5–6 sentences, addressing their key points directly.
             """
             rebuttal_against_prompt = f"""
             You are {debater2_obj.name}, arguing {stance2.upper()} the motion: "{topic}".
-            Your opponent said:\n{arg_for}
-            Write your rebuttal in 4-6 sentences.
+            Your opponent said:\n\n{arg_for}\n\n
+            Write your rebuttal in 5–6 sentences, addressing their key points directly.
             """
 
             rebuttal_for = run_task(debater1_obj, rebuttal_for_prompt)
@@ -117,15 +127,16 @@ with tab1:
         st.markdown(f"**{debater2_obj.name}:** {rebuttal_against}")
         st.divider()
 
-        with st.spinner("🎤 Generating Closing Arguments..."):
+        # ------------------ Closing Statements ------------------
+        with st.spinner("🎤 Generating Closing Statements..."):
             closing_for_prompt = f"""
             You are {debater1_obj.name}, arguing {stance1.upper()} the motion: "{topic}".
-            Summarize your position in 5-7 sentences, based on the discussion so far:
+            Summarize your side in 5–7 sentences. Base your reasoning on all previous exchanges:
             {debate_history}
             """
             closing_against_prompt = f"""
             You are {debater2_obj.name}, arguing {stance2.upper()} the motion: "{topic}".
-            Summarize your position in 5-7 sentences, based on the discussion so far:
+            Summarize your side in 5–7 sentences. Base your reasoning on all previous exchanges:
             {debate_history}
             """
 
@@ -139,12 +150,14 @@ with tab1:
         st.markdown(f"**{debater2_obj.name}:** {closing_against}")
         st.divider()
 
+        # ------------------ Verdict ------------------
         with st.spinner("⚖️ Judge Deliberating..."):
             verdict_prompt = f"""
-            You are {judge_obj.name}, known for your {judge_obj.judging_style}.
-            Here's the full debate transcript:
+            You are {judge_obj.name}, a judge known for your {judge_obj.judging_style}.
+            Focus on {judge_obj.focus}.
+            Here is the complete debate transcript:
             {debate_history}
-            Objectively analyze both sides, choose a winner, and give a concise justification.
+            Analyze both sides, decide the winner, and explain why in 2–3 paragraphs.
             """
             verdict = run_task(judge_obj, verdict_prompt)
 
@@ -156,20 +169,23 @@ with tab1:
 # ------------------------------------------------------------
 with tab2:
     st.markdown("### Meet the AI Debaters and Judges 👇")
+
     subtab1, subtab2 = st.tabs(["🎙️ Debaters", "⚖️ Judges"])
 
+    # --- Debaters ---
     with subtab1:
         for agent in agent_pool:
             st.markdown(f"#### {agent.name}")
             st.write(f"**Personality:** {agent.personality}")
-            st.write(f"**Specialty:** {getattr(agent, 'specialty', 'General Debate')}")
-            st.write(f"**Description:** {getattr(agent, 'description', 'No bio available.')}")
+            st.write(f"**Expertise:** {agent.expertise}")
+            st.write(f"**Bio:** {getattr(agent, 'bio', getattr(agent, 'description', 'No bio available.'))}")
             st.divider()
 
+    # --- Judges ---
     with subtab2:
         for judge in judge_pool:
             st.markdown(f"#### {judge.name}")
             st.write(f"**Judging Style:** {judge.judging_style}")
-            st.write(f"**Focus Criteria:** {getattr(judge, 'focus', 'Logical balance and evidence quality')}")
-            st.write(f"**Description:** {getattr(judge, 'description', 'No bio available.')}")
+            st.write(f"**Focus Criteria:** {judge.focus}")
+            st.write(f"**Bio:** {getattr(judge, 'bio', getattr(judge, 'description', 'No bio available.'))}")
             st.divider()

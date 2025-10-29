@@ -4,3 +4,4 @@ openai
 huggingface-hub
 python-dotenv
 crewai
+gradio
