@@ -324,15 +324,20 @@ class DebateMemory:
         
         # Rating distribution
         context_parts.append("Your rating distribution:")
+        rd = profile["rating_distribution"]
+        # Handle both string and int keys for compatibility
         for rating in range(1, 6):
-            count = profile["rating_distribution"][rating]
-            percentage = (count / sum(profile["rating_distribution"].values()) * 100) if sum(profile["rating_distribution"].values()) > 0 else 0
+            key = str(rating)
+            count = rd.get(key, rd.get(rating, 0))
+            total = sum(int(v) for v in rd.values()) if rd else 0
+            percentage = (count / total * 100) if total > 0 else 0
             context_parts.append(f"  {rating} stars: {count} times ({percentage:.1f}%)")
         
         # Consistency advice
-        total_verdicts = sum(profile["rating_distribution"].values())
+        total_verdicts = sum(int(v) for v in rd.values()) if rd else 0
         if total_verdicts >= 10:
-            if profile["rating_distribution"][3] / total_verdicts < 0.3:
+            mid_count = rd.get('3', rd.get(3, 0))
+            if mid_count / total_verdicts < 0.3:
                 context_parts.append("Consider using the full rating scale more consistently. The middle ratings (3) can be useful for average performances.")
         
         # Topics judged
