@@ -7,6 +7,9 @@ An intelligent debate system where AI agents engage in structured debates, learn
 ### Core Capabilities
 - **AI-Powered Debates**: Multiple AI agents with unique personalities debate on any topic
 - **Intelligent Judging**: AI judges evaluate debates based on specific criteria
+- **Text-to-Speech**: Each agent has a unique voice with different accents (UK, AU, US, CA, IN)
+- **AI-Generated Avatars**: Visual identity for each agent with portrait images
+- **Chat-Style UI**: Conversation bubbles with manual audio playback controls
 - **Persistent Memory**: All debates are saved with complete transcripts and ratings
 - **Learning System**: Both debaters and judges learn from past performances
 - **Performance Tracking**: Detailed statistics and analytics for all participants
@@ -41,6 +44,15 @@ cd Debating_Agents
 pip install -r requirements.txt
 ```
 
+**Required packages:**
+- `streamlit` - Web interface
+- `crewai` - AI agent framework
+- `langchain` - LLM integration
+- `openai` - OpenAI API access
+- `python-dotenv` - Environment management
+- `gtts` - Google Text-to-Speech for voice generation
+- `pillow` - Image processing for avatars
+
 3. **Set up environment variables**
 
 Create a `.env` file with your API keys:
@@ -70,7 +82,44 @@ The system will:
 - Create rebuttals
 - Deliver closing arguments
 - Provide a judge's verdict with ratings
+- Generate speech audio with unique voices per agent
+- Display in chat bubbles with AI-generated avatars
 - Save everything to memory for learning
+
+## 🎙️ Voice & Visual Features
+
+### Text-to-Speech System
+
+Each agent has a distinct voice with region-specific accents:
+
+**Debaters:**
+- **Athena**: British English (UK) - Calm, analytical tone
+- **Hermes**: Australian English (AU) - Energetic, witty delivery
+- **Daedalus**: American English (US) - Strategic, measured speech
+- **Artemis**: Canadian English (CA) - Empathetic, clear articulation
+- **Zephyr**: Indian English (IN) - Charismatic, expressive style
+
+**Judges:**
+- **Solon**: British English (UK) - Authoritative, wise tone
+- **Themis**: American English (US) - Precise, logical delivery
+- **Minerva**: British English (UK) - Academic, balanced speech
+- **Apollo**: Australian English (AU) - Expressive, engaging style
+- **Atharva**: Indian English (IN) - Modern, analytical approach
+
+**Audio Features:**
+- Automatic speech generation for all debate text
+- MP3 files cached in `audio_files/` directory
+- Manual playback controls (no auto-play)
+- Fast speech speed for efficient listening
+- Unique voice per agent for easy identification
+
+### AI-Generated Avatars
+
+Visual identity powered by DiceBear API:
+- **Debaters**: Avataaars style (cartoon portraits)
+- **Judges**: Bottts style (robot avatars)
+- Consistent avatar per agent across all debates
+- Displayed in chat message bubbles
 
 ## 👥 Meet the Agents
 
@@ -166,16 +215,19 @@ Debate 3: Rating 5/5 - "Consistent quality maintained"
 ## 📊 User Interface
 
 ### 1. Debate Arena
-- Configure debates
-- Watch arguments unfold in real-time
-- See ratings and feedback
-- Winner declaration
+- Configure debates with agent and topic selection
+- Watch arguments unfold in real-time with chat bubbles
+- Listen to each agent's unique voice with play buttons
+- See AI-generated avatar portraits for visual identity
+- View ratings and detailed feedback
+- Winner declaration in final verdict
 
 ### 2. Agent Profiles
 - View debater performance statistics
 - Check rating history and trends
 - See strengths and weaknesses
 - Review judge statistics and patterns
+- Agent-specific analytics
 
 ### 3. Debate History
 - Browse all past debates
@@ -183,6 +235,7 @@ Debate 3: Rating 5/5 - "Consistent quality maintained"
 - View complete transcripts
 - See ratings and verdicts
 - System-wide statistics dashboard
+- Audio playback for historical debates (if cached)
 
 ## 💾 Data Storage
 
@@ -195,6 +248,12 @@ All data is stored in `debate_history.json`:
   "judge_profiles": {...}     // Evaluation patterns
 }
 ```
+
+**Audio files** are cached separately in `audio_files/` directory:
+- MP3 format with agent-specific voices
+- Filename: `{AgentName}_{TextHash}.mp3`
+- Automatically managed by TTS system
+- Not tracked in git (excluded via .gitignore)
 
 **Each debate record contains:**
 - Unique ID and timestamp
@@ -228,12 +287,20 @@ Agents (agents/debate_agents.py, agents/judge_agents.py)
         ↓
 Rating System (core/rating_system.py)
         ↓
+TTS System (core/tts_system.py)
+        ↓
 Memory System (core/memory_system.py)
         ↓
-Storage (debate_history.json)
+Storage (debate_history.json + audio_files/)
 ```
 
 ### Key Components
+
+**`core/tts_system.py`**
+- Google Text-to-Speech integration
+- Voice configuration per agent
+- Audio file caching and management
+- Accent/region-specific speech generation
 
 **`core/memory_system.py`**
 - Manages persistent storage
@@ -258,8 +325,10 @@ Storage (debate_history.json)
 - Judging pattern analysis
 
 **`app.py`**
-- Streamlit UI
+- Streamlit UI with chat interface
 - Debate orchestration
+- TTS integration and audio playback
+- Avatar display in chat bubbles
 - Results display
 
 ## 📝 Usage Tips
@@ -274,6 +343,10 @@ Storage (debate_history.json)
 
 5. **Monitor Trends**: Use Debate History to see performance evolution
 
+6. **Audio Controls**: Click play buttons to hear each argument - voices help distinguish agents
+
+7. **Clear Cache**: Delete `audio_files/` folder to regenerate all speech (if voices sound corrupted)
+
 ## 🐛 Troubleshooting
 
 **Issue**: Import errors on startup
@@ -285,8 +358,20 @@ Storage (debate_history.json)
 **Issue**: Ratings not appearing
 - **Solution**: Ensure debate completes fully through verdict stage
 
+**Issue**: Audio not playing or errors generating speech
+- **Solution**: 
+  - Check `gtts` is installed: `pip install gtts`
+  - Verify internet connection (gTTS requires online access)
+  - Delete `audio_files/` folder and regenerate
+
+**Issue**: Avatars not displaying
+- **Solution**: Check internet connection (avatars load from DiceBear API)
+
 **Issue**: Want to reset all data
 - **Solution**: Delete `debate_history.json` (will regenerate on next debate)
+
+**Issue**: Audio files taking up disk space
+- **Solution**: Delete `audio_files/` folder - cached audio will regenerate as needed
 
 ## 📦 Dependencies
 
@@ -295,8 +380,10 @@ Storage (debate_history.json)
 - `langchain` - LLM integration
 - `openai` - OpenAI API access
 - `python-dotenv` - Environment management
+- `gtts` - Google Text-to-Speech for voice generation
+- `pillow` - Image processing for avatar display
 
-No additional dependencies required for the memory/learning system!
+**Note**: gTTS requires internet connection for speech generation.
 
 ## 🎯 System Statistics
 
@@ -312,7 +399,7 @@ View these in the **Debate History** tab dashboard.
 
 Potential additions:
 - [ ] Advanced analytics with charts/graphs
-- [ ] Export debates to PDF/CSV
+- [ ] Export debates to PDF/CSV with audio
 - [ ] Tournament mode with rankings
 - [ ] Team debates (2v2)
 - [ ] Multi-judge panels
@@ -321,6 +408,9 @@ Potential additions:
 - [ ] Head-to-head statistics
 - [ ] Topic expertise tracking
 - [ ] Audience voting integration
+- [ ] Voice speed controls (requires different TTS engine)
+- [ ] Downloadable audio files
+- [ ] Real-time audio streaming during generation
 
 ## 📄 License
 
@@ -332,9 +422,16 @@ Built with CrewAI and powered by OpenAI's language models.
 
 ---
 
-**Current Version**: 2.0.0 (Memory & Learning System)  
+**Current Version**: 2.1.0 (Memory, Learning & Voice System)  
 **Last Updated**: November 9, 2025  
 **Status**: Stable ✅
+
+**New in v2.1.0:**
+- 🎙️ Text-to-Speech with unique voices per agent
+- 🖼️ AI-generated avatar portraits
+- 💬 Chat-style conversation UI
+- 🔊 Manual audio playback controls
+- 🌍 Multi-accent support (UK, AU, US, CA, IN)
 
 For issues or questions, check the Debate History tab or review the agent profiles for performance insights.
 

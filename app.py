@@ -10,6 +10,7 @@ from agents.debate_agents import agent_pool
 from agents.judge_agents import judge_pool
 from core.memory_system import debate_memory
 from core.rating_system import generate_detailed_ratings, display_rating_stars
+from core.tts_system import tts_manager
 from crewai import Crew, Process, Task
 
 # ------------------------------------------------------------
@@ -17,6 +18,22 @@ from crewai import Crew, Process, Task
 # ------------------------------------------------------------
 st.set_page_config(page_title="AI Debate Simulator", page_icon="🎙️", layout="wide")
 st.title("🎙️ AI Debate Simulator")
+
+# ------------------------------------------------------------
+# Helper Function for Chat Display with Audio
+# ------------------------------------------------------------
+def display_agent_message(agent, text, role_label=""):
+    """Display a message in chat format with avatar and audio player."""
+    with st.chat_message(agent.name, avatar=agent.avatar_url):
+        st.markdown(f"**{agent.name}** {role_label}")
+        st.markdown(text)
+        
+        # Generate and display audio player
+        audio_path = tts_manager.generate_speech(agent.name, str(text))
+        if audio_path and os.path.exists(audio_path):
+            with open(audio_path, 'rb') as audio_file:
+                audio_bytes = audio_file.read()
+                st.audio(audio_bytes, format='audio/mp3')
 
 tab1, tab2, tab3 = st.tabs(["🧩 Debate Arena", "🧠 Agent Profiles", "📊 Debate History"])
 
@@ -89,6 +106,7 @@ with tab1:
             return crew.kickoff(inputs={"context": context})
 
         # ------------------ Opening Statements ------------------
+        st.markdown("### 🗣️ Opening Statements")
         with st.spinner("🧠 Generating Opening Statements..."):
             opening_for_prompt = f"""
             You are {debater1_obj.name}, arguing {stance1.upper()} the motion: "{topic}".
@@ -104,9 +122,9 @@ with tab1:
             debate_history.append(f"{debater1_obj.name} ({stance1.upper()}): {arg_for}")
             debate_history.append(f"{debater2_obj.name} ({stance2.upper()}): {arg_against}")
 
-        st.markdown("### 🗣️ Opening Statements")
-        st.markdown(f"**{debater1_obj.name} ({stance1.upper()}):** {arg_for}")
-        st.markdown(f"**{debater2_obj.name} ({stance2.upper()}):** {arg_against}")
+        # Display with chat UI and audio
+        display_agent_message(debater1_obj, str(arg_for), f"({stance1.upper()})")
+        display_agent_message(debater2_obj, str(arg_against), f"({stance2.upper()})")
         st.divider()
 
         # ------------------ Rebuttals ------------------
@@ -128,8 +146,8 @@ with tab1:
             debate_history.append(f"{debater2_obj.name} Rebuttal: {rebuttal_against}")
 
         st.markdown("### 🧩 Rebuttals")
-        st.markdown(f"**{debater1_obj.name}:** {rebuttal_for}")
-        st.markdown(f"**{debater2_obj.name}:** {rebuttal_against}")
+        display_agent_message(debater1_obj, str(rebuttal_for), "🔄 Rebuttal")
+        display_agent_message(debater2_obj, str(rebuttal_against), "🔄 Rebuttal")
         st.divider()
 
         # ------------------ Closing Statements ------------------
@@ -151,8 +169,8 @@ with tab1:
             debate_history.append(f"{debater2_obj.name} Closing: {closing_against}")
 
         st.markdown("### 🏁 Closing Statements")
-        st.markdown(f"**{debater1_obj.name}:** {closing_for}")
-        st.markdown(f"**{debater2_obj.name}:** {closing_against}")
+        display_agent_message(debater1_obj, str(closing_for), "🎤 Closing Statement")
+        display_agent_message(debater2_obj, str(closing_against), "🎤 Closing Statement")
         st.divider()
 
         # ------------------ Verdict ------------------
@@ -170,7 +188,7 @@ with tab1:
             verdict = run_task(judge_obj, verdict_prompt)
 
         st.markdown("## 🏆 Final Verdict")
-        st.success(f"**Judge {judge_obj.name}:** {verdict}")
+        display_agent_message(judge_obj, str(verdict), "⚖️ Final Verdict")
         st.divider()
         
         # ------------------ Ratings & Feedback ------------------

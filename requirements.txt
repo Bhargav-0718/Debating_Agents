@@ -5,3 +5,5 @@ huggingface-hub
 python-dotenv
 crewai
 gradio
+gtts
+pillow

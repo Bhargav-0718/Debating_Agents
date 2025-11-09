@@ -11,11 +11,12 @@ from core.memory_system import debate_memory
 class JudgeAgent:
     """Wrapper around CrewAI Agent to evaluate debates with unique judging personalities."""
 
-    def __init__(self, name, judging_style, focus, bio):
+    def __init__(self, name, judging_style, focus, bio, avatar_url=None):
         self.name = name
         self.judging_style = judging_style
         self.focus = focus
         self.bio = bio
+        self.avatar_url = avatar_url or f"https://api.dicebear.com/7.x/bottts/svg?seed={name}"
         self.learning_context = ""
         # Create a minimal agent immediately to avoid heavy work at import time.
         # Learning-enhanced context will be injected later via prepare_for_judgment().

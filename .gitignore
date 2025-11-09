@@ -20,5 +20,8 @@ Thumbs.db
 .cache/
 outputs/
 
+# Audio files cache
+audio_files/
+
 # Documentation
 CHANGELOG.md

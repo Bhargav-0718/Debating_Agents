@@ -11,11 +11,12 @@ from core.memory_system import debate_memory
 class DebateAgent:
     """Flexible wrapper around CrewAI Agent to allow stance assignment and bios."""
 
-    def __init__(self, name, personality, expertise, bio):
+    def __init__(self, name, personality, expertise, bio, avatar_url=None):
         self.name = name
         self.personality = personality
         self.expertise = expertise
         self.bio = bio
+        self.avatar_url = avatar_url or f"https://api.dicebear.com/7.x/avataaars/svg?seed={name}"
         self.stance = None
         self.learning_context = ""
         
