@@ -1,4 +1,12 @@
 from crewai import Agent
+import sys
+import os
+
+# Add parent directory to path for imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from core.memory_system import debate_memory
+
 
 class DebateAgent:
     """Flexible wrapper around CrewAI Agent to allow stance assignment and bios."""
@@ -8,21 +16,84 @@ class DebateAgent:
         self.personality = personality
         self.expertise = expertise
         self.bio = bio
+        self.stance = None
+        self.learning_context = ""
+        
+        # Create a minimal agent immediately; we'll inject learning context
+        # right before the debate when stance is assigned.
         self.agent = Agent(
-            name=name,
+            name=self.name,
             role="Debater",
             goal="Engage in structured debates using logic and persuasion.",
             backstory=(
-                f"You are {name}, a skilled debater with a {personality}. "
-                f"You have expertise in {expertise}. You can argue for or against any topic effectively."
+                f"You are {self.name}, a skilled debater with a {self.personality}. "
+                f"You have expertise in {self.expertise}. You can argue for or against any topic effectively."
             ),
         )
-        self.stance = None
+
+    def _update_agent(self):
+        """Create or update the CrewAI agent with current learning context."""
+        # Get learning context from memory
+        self.learning_context = debate_memory.get_debater_learning_context(self.name)
+        
+        # Create agent with enhanced backstory including learning context
+        self.agent = Agent(
+            name=self.name,
+            role="Debater",
+            goal="Engage in structured debates using logic and persuasion, continuously improving based on past performance.",
+            backstory=(
+                f"You are {self.name}, a skilled debater with a {self.personality}. "
+                f"You have expertise in {self.expertise}. You can argue for or against any topic effectively.\n\n"
+                f"PERFORMANCE CONTEXT:\n{self.learning_context}\n\n"
+                f"Use this information to refine your debating strategy and address any weaknesses identified in previous debates."
+            ),
+        )
 
     def assign_stance(self, stance: str):
         """Assign stance dynamically: 'for' or 'against'."""
         self.stance = stance
+        # Refresh learning context when stance is assigned (before debate starts)
+        self._update_agent()
         print(f"🎯 {self.name} is assigned to argue '{stance}' the topic.\n")
+    
+    def get_profile(self):
+        """Get the debater's performance profile from memory."""
+        return debate_memory.get_debater_profile(self.name)
+    
+    def get_rating_summary(self):
+        """Get a summary of the debater's ratings."""
+        profile = self.get_profile()
+        if not profile:
+            return "No debate history yet."
+        
+        summary = f"**Performance Summary for {self.name}**\n\n"
+        summary += f"- Total Debates: {profile['total_debates']}\n"
+        summary += f"- Average Rating: {profile['average_rating']:.2f}/5 ⭐\n"
+        
+        if profile['rating_history']:
+            summary += f"\n**Recent Ratings (last 5):**\n"
+            for record in profile['rating_history'][-5:]:
+                summary += f"  - {record['rating']}/5 on topic: '{record['topic']}' ({record['stance']})\n"
+        
+        if profile['strengths']:
+            summary += f"\n**Strengths:** {', '.join(profile['strengths'][:5])}\n"
+        
+        if profile['weaknesses']:
+            summary += f"\n**Areas for Improvement:** {', '.join(profile['weaknesses'][:5])}\n"
+        
+        # Stance performance
+        for_ratings = profile['stance_performance']['for']
+        against_ratings = profile['stance_performance']['against']
+        
+        if for_ratings:
+            for_avg = sum(for_ratings) / len(for_ratings)
+            summary += f"\n**For Arguments:** Average {for_avg:.2f}/5 ({len(for_ratings)} debates)\n"
+        
+        if against_ratings:
+            against_avg = sum(against_ratings) / len(against_ratings)
+            summary += f"**Against Arguments:** Average {against_avg:.2f}/5 ({len(against_ratings)} debates)\n"
+        
+        return summary
 
 
 # --- Agent Pool ---

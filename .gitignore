@@ -19,3 +19,6 @@ Thumbs.db
 # CrewAI cache or models
 .cache/
 outputs/
+
+# Documentation
+CHANGELOG.md

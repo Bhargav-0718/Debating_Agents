@@ -1,0 +1,239 @@
+{
+  "debates": [
+    {
+      "id": 1,
+      "timestamp": "2025-11-09T15:49:37.764344",
+      "topic": "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions",
+      "participants": {
+        "debater1": {
+          "name": "Daedalus",
+          "stance": "for",
+          "rating": 4,
+          "feedback": "Daedalus presented a strong ethical argument grounded in the ideals of sportsmanship and diplomacy, effectively emphasizing the symbolic power of cricket as a bridge for peace. The argument was well-structured with an appeal to international safety protocols, showing an awareness of practical technology-enabled security measures. However, the case could have been strengthened by acknowledging more fully the complex political realities and the ethical nuances of prioritizing moral obligation over national sovereignty."
+        },
+        "debater2": {
+          "name": "Zephyr",
+          "stance": "against",
+          "rating": 4,
+          "feedback": "Zephyr delivered a compelling argument rooted in prioritizing national security and sovereignty, which are essential ethical considerations often overlooked in debates about moral obligations in sports. The reasoning was grounded in the pragmatic and technological reality of security risks and geopolitical complexities. However, the argument sometimes leaned heavily on political sovereignty at the expense of exploring potential innovative solutions that technology or diplomacy might offer to balance safety with sportsmanship."
+        }
+      },
+      "judge": "Atharva",
+      "transcript": {
+        "opening_for": "Ladies and gentlemen, India holds a significant position not only as a cricketing powerhouse but also as a nation that embraces sportsmanship and global unity. Participating in matches against Pakistan in ICC tournaments, despite political tensions, is a moral obligation grounded in the principles of fairness, respect, and the unifying spirit of sport. Cricket serves as a bridge that transcends political divides, fostering dialogue and peace between two countries with a shared history and cultural affinity. By refusing to participate, India risks politicizing sports and undermining the integrity of international competitions. Furthermore, players and fans alike deserve the opportunity to witness and engage in matches that celebrate talent and competition, rather than being overshadowed by political disputes. In essence, India's participation symbolizes a commitment to the global values of sportsmanship, promoting diplomacy through peaceful exchange rather than conflict. It is not just about cricket; it is about setting a precedent for cooperation and mutual respect on and off the field.",
+        "opening_against": "Ladies and gentlemen, while sports often serve as a bridge to foster unity, we must recognize that India should not be morally obligated to participate in cricket matches against Pakistan during ICC tournaments amid ongoing political tensions. The primary role of any nation is to ensure the safety and well-being of its players and citizens. Given the hostile political atmosphere and history of conflict, compelling India to play risks not just the players’ security but also igniting further unrest among citizens. Sporting events, although symbolic, cannot be forced at the cost of national stability and public order. Moreover, moral obligation implies a duty grounded in ethics, yet the reality is that political tensions stem from real and complex grievances that overshadow the ethical impulse to engage in friendly competition. India must retain the sovereign right to make decisions in alignment with its national interest, including when and if to compete. To compel participation disregards the broader context and pressures sports to become a pawn in political conflicts, which betrays the spirit of sport itself.",
+        "rebuttal_for": "While it is true that national security and public order are paramount, relegating cricket matches to political considerations undermines the very purpose of sports—to transcend conflicts and foster dialogue. The argument that India should withdraw from matches to avoid unrest overlooks cricket’s unique role as a diplomatic bridge that can ease tensions and build mutual respect. Morally, India holds a responsibility to uphold the spirit of sportsmanship, demonstrating that cooperation and peaceful competition can prevail despite political discord. Avoiding these matches signals acquiescence to division, rather than courage to confront challenges through engagement. Additionally, ICC tournaments are governed by international standards designed to ensure player safety, which mitigates legitimate security concerns. Therefore, India’s moral obligation to participate is grounded in promoting peace, unity, and honoring the global values that sports represent, beyond transient political strife.",
+        "rebuttal_against": "While the ideals of sportsmanship and unity are admirable, India cannot be morally obligated to overlook its national interests and security concerns in the name of cricket. Political tensions between India and Pakistan are not mere disputes but complex, ongoing national issues that cannot be trivialized by sporting events. Expecting India to participate in matches against Pakistan without resolution risks normalizing relations unilaterally and potentially undermines India’s stance on critical diplomatic matters. Furthermore, sports should not be completely divorced from the political realities that shape international relations; to do so would be to ignore the broader context in which these matches occur. It is entirely reasonable for India to prioritize its political and security considerations over symbolic gestures of sportsmanship, without being accused of diminishing the spirit of the game. In essence, moral obligation in sport cannot supersede a nation’s right to safeguard its sovereignty and political integrity.",
+        "closing_for": "Ladies and gentlemen, India’s moral obligation to participate in ICC matches against Pakistan, despite political tensions, rests on the foundational ideals of sportsmanship, diplomacy, and the transformative power of sport. Cricket is far more than a game; it symbolizes unity, peace, and mutual respect that transcend political boundaries. When India chooses to play against Pakistan, it actively promotes dialogue and reduces hostility by showcasing cooperation rather than division on an international stage. Refusing to participate risks turning sports into a tool of political conflict, damaging the integrity of the game and depriving players and fans of the shared cultural celebration that cricket fosters. While national security and political realities are undeniably important, the ICC’s stringent safety protocols and international frameworks provide a secure environment where sport can triumph over discord. Furthermore, participation asserts India’s commitment to global ethical values where peaceful engagement and respect take precedence over fear or political provocation. To abstain from such matches is to let transient political strife dictate cultural and diplomatic interactions, whereas taking the field reflects courage, leadership, and a vision for a more harmonious future. Thus, India has not merely a right, but a moral duty to engage in these matches, embodying sportsmanship as a powerful force for peace and cooperation beyond the cricket pitch.",
+        "closing_against": "Ladies and gentlemen, while the noble ideals of sportsmanship and unity championed through cricket are admirable, India should not be held morally obligated to participate in matches against Pakistan in ICC tournaments amidst persistent political tensions. The foremost responsibility of any nation is to protect the safety and security of its players, citizens, and national interests. The ongoing political frictions between India and Pakistan are deeply rooted and complex, far transcending the boundaries of sport. Expecting India to overlook these realities for the sake of symbolic sporting engagement risks trivializing significant diplomatic and security concerns. Participation under such strained circumstances not only endangers individuals but also sends a message of unilateral normalization that may undermine India’s position on critical geopolitical issues. While cricket can indeed serve as a platform for dialogue, it should never be compelled at the expense of national sovereignty or public order. Furthermore, divorcing sport from its political context disregards the genuine grievances and tensions that influence international relations today. Therefore, India must retain full sovereign discretion to decide if and when to compete without bearing a moral burden that disregards its broader national interests. In conclusion, moral obligation cannot and should not be imposed on a nation to prioritize symbolic sporting participation over its right to safeguard security, political integrity, and sovereign decision-making."
+      },
+      "verdict": "Both debaters present compelling arguments rooted in ethical considerations and the contextual realities surrounding cricket matches between India and Pakistan during ICC tournaments. Daedalus advocates for the moral obligation based on the transcendent power of sports to bridge divides, promote peace, and foster mutual respect despite political disagreements. This argument hinges on an ethical vision where sport operates above and beyond political conflicts, supported by international safety protocols that mitigate security concerns. Daedalus effectively frames participation as a proactive moral responsibility that exemplifies courage and leadership, contributing positively to diplomacy and international cooperation.\n\nConversely, Zephyr focuses on the primacy of national sovereignty, security, and the complexities of political tensions that cannot be easily set aside for symbolic sporting events. The argument for withdrawing from these matches underscores the risks posed to player and citizen safety, and the ethical imperative for a nation to prioritize its security and political integrity over sporting symbolism. Zephyr convincingly points out that forcing participation may undermine legitimate national interests and reduce sport to a political tool, thus betraying the spirit of sportsmanship itself. This argument emphasizes the pragmatic ethical stance that moral obligations must be contextualized within broader realities, respecting a nation’s sovereign decision-making.\n\nAfter weighing both perspectives, the winner is Daedalus. Their argument adheres closely to the ethical ideals of sportsmanship, peace, and international cooperation while addressing security concerns pragmatically through existing ICC safeguards. Daedalus’ framing of sport as a powerful ethical and diplomatic platform aligns with modern global values, emphasizing dialogue over division. Although Zephyr’s caution regarding security and sovereignty is vital, it leans toward a conservative stance that risks allowing political tensions to indefinitely hinder positive engagement. Daedalus’ vision for transcending conflict through sport presents a more forward-looking, ethically sound, and constructive approach consistent with the transformative power of technology-enabled international frameworks and diplomacy."
+    },
+    {
+      "id": 2,
+      "timestamp": "2025-11-09T16:02:16.729118",
+      "topic": "Capitalism is better than communism",
+      "participants": {
+        "debater1": {
+          "name": "Athena",
+          "stance": "against",
+          "rating": 4,
+          "feedback": "Clear and well-structured argumentation, strong ethical framing, consistent focus on social justice, direct counterpoints to opponent’s claims, and thoughtful closing emphasizing sustainable and equitable considerations Could integrate more concrete examples or historical contexts to bolster communism’s practical strengths, and balance idealistic claims with acknowledgment of historical challenges more explicitly Athena’s arguments were lucid and consistently challenged the motion with a sound ethical critique of capitalism’s social costs and inequalities. The structure was coherent and rhetoric persuasive, appealing to fairness and collective well-being, though occasionally idealistic without substantial empirical examples. Her responsiveness effectively addressed the opponent’s points, maintaining a strong rebuttal posture."
+        },
+        "debater2": {
+          "name": "Hermes",
+          "stance": "for",
+          "rating": 5,
+          "feedback": "Exceptionally clear and logically consistent reasoning, well-supported with historical and practical evidence, engaging and confident rhetorical style, direct and tactful responses to opponent’s objections, and strong summarization emphasizing pragmatism and liberty Could explicitly acknowledge capitalism’s inequalities more upfront to demonstrate nuanced understanding, thereby strengthening credibility and ethical appeal Hermes presented a thoroughly structured, richly evidenced argument favoring capitalism, skillfully integrating economic principles with social realities. His rhetoric was persuasive and aligned with advocating personal freedom and innovation, and his rebuttals were incisive and comprehensive, making the pro position compelling overall."
+        }
+      },
+      "judge": "Minerva",
+      "transcript": {
+        "opening_for": "Ladies and gentlemen, I stand firmly against the motion that \"Capitalism is better than communism\" because this binary oversimplifies complex socio-economic systems and ignores the profound flaws inherent in capitalism. Capitalism, by its nature, prioritizes profit over people, leading to stark inequalities, exploitation of workers, and cyclical economic crises that harm the most vulnerable. In contrast, communism, when properly implemented, aims to distribute resources equitably and abolish class hierarchies, promoting social welfare and cooperation. While capitalism may encourage innovation through competition, it often does so at the expense of social cohesion and environmental sustainability. Moreover, capitalist markets can fail to provide essential public goods and services, leaving many marginalized without basic needs met. Therefore, to declare capitalism inherently superior overlooks critical ethical and practical considerations, especially regarding justice and collective well-being. Our evaluation should be rooted in an honest analysis of outcomes, not ideological bias or simplistic labels.",
+        "opening_against": "Ladies and gentlemen, capitalism stands as the superior economic and social system when compared to communism because it fundamentally drives innovation, incentivizes hard work, and fosters individual freedom. In capitalist economies, the profit motive encourages entrepreneurs to develop new ideas and technologies, leading to higher productivity and improved standards of living. Unlike communism, which centralizes control and stifles competition, capitalism’s decentralized market allows for efficient allocation of resources based on supply and demand. Furthermore, capitalism respects personal property rights and individual choice, empowering people to pursue their own goals and prosperity. History has shown us how communist regimes often result in economic stagnation and suppression of personal freedoms, whereas capitalist societies consistently demonstrate greater economic growth and adaptability. In essence, capitalism’s dynamic environment creates opportunities, rewards merit, and ultimately delivers better outcomes for society as a whole. This clear evidence makes capitalism not only a more effective system but also a more just and liberating one.",
+        "rebuttal_for": "While capitalism may indeed drive innovation and allow for individual choice, it often does so at the expense of equality and social justice. The profit motive that capitalism relies on frequently leads to wealth concentration in the hands of a few, creating systemic inequality and limiting opportunities for many. Communism, in contrast, aims to prioritize collective well-being by distributing resources more equitably and removing exploitation inherent in capitalist labor relations. The claim that communism stifles freedom overlooks how capitalism can restrict freedom through economic inequality and lack of access to basic needs. Furthermore, capitalism’s focus on competition can lead to environmental degradation and neglect public goods, problems communism seeks to address through planned resource management. Thus, capitalism’s benefits come with significant social costs that communism attempts to remedy, making communism a more just alternative in pursuing societal welfare.",
+        "rebuttal_against": "While my opponent raises important ethical concerns, they overlook capitalism’s unparalleled ability to drive innovation and create wealth that lifts millions out of poverty—a feat communism has historically failed to achieve. Capitalism’s competitive markets incentivize efficiency and creativity, producing diverse goods and services that improve living standards globally. The argument that capitalism ignores social welfare ignores the role of democratic governments regulating capitalism to provide public goods and address inequalities, which is more flexible than rigid communist systems. Furthermore, communism’s idealistic vision collapses under practical realities, often leading to authoritarianism and economic stagnation rather than equitable prosperity. Capitalism, despite its imperfections, empowers individual freedoms and economic dynamism essential for societal progress, making it the superior system overall.",
+        "closing_for": "Ladies and gentlemen, I stand resolutely against the notion that capitalism is unequivocally better than communism. Capitalism, centered on profit maximization, inherently generates vast inequalities and concentrates wealth in the hands of a few, which undermines social justice and equitable opportunity. While proponents celebrate capitalism’s innovation and individual freedoms, the system frequently marginalizes vulnerable populations by failing to guarantee basic needs, such as healthcare, education, and housing. In contrast, communism’s foundational ideals aim to eradicate class divisions and distribute resources to meet everyone’s needs, promoting societal welfare and cooperation. The argument that communism inevitably leads to authoritarianism overlooks the possibility of designing systems that emphasize democratic participation and collective decision-making rather than rigid centralized control. Moreover, capitalism’s relentless focus on competition often results in environmental degradation and neglect of public goods, issues that communism seeks to address through planned and sustainable resource management. Although capitalism may generate wealth, this wealth is unevenly distributed and can erode social cohesion, making communism, with its emphasis on equity and collective well-being, a more ethically sound and socially just alternative. Therefore, judging these systems requires nuanced consideration beyond economic growth alone to include human dignity, equity, and long-term sustainability, areas where communism’s principles inherently offer a stronger foundation.",
+        "closing_against": "Ladies and gentlemen, capitalism stands unequivocally as the superior socio-economic system compared to communism because it fundamentally promotes innovation, individual freedom, and economic dynamism. Capitalism’s decentralized market thrives on competition, incentivizing entrepreneurs to develop new ideas, which boosts productivity and raises living standards worldwide. Unlike communism’s centralized control, which historically leads to economic stagnation and authoritarian regimes, capitalism respects personal property rights and empowers individuals to pursue their own goals and prosperity. While capitalism isn’t flawless and does generate inequalities, democratic governance within capitalist societies offers a flexible mechanism to regulate markets, provide public goods, and address social welfare, something rigid communist systems lack. Moreover, capitalism’s ability to create vast wealth has lifted millions out of poverty, demonstrating tangible, positive outcomes. Communism’s idealistic vision, unfortunately, collapses under practical realities, resulting more often in oppression and economic failure than equitable prosperity. In essence, capitalism’s dynamic, innovation-driven environment not only fosters progress and opportunity but also upholds individual liberty, making it not just more effective but inherently more just and liberating for society as a whole."
+      },
+      "verdict": "In this debate on whether capitalism is better than communism, both Athena (FOR) and Hermes (AGAINST) offer well-structured, persuasive arguments grounded in socio-economic theory and historical context. Athena contends that capitalism inherently produces inequality, exploitation, and environmental harm, arguing that communism's ideals of equitable resource distribution and collective well-being provide a stronger ethical foundation. Her arguments underscore the social justice dimension by highlighting capitalism’s failure to guarantee basic needs and the potential for communism to be democratically implemented without authoritarianism. Athena’s rebuttals effectively counter Hermes’ points by emphasizing the social costs of capitalism’s innovation and economic dynamism.\n\nOn the other hand, Hermes presents a compelling case for capitalism’s efficiency, innovation, and respect for individual freedom. He stresses capitalism’s proven track record in lifting millions out of poverty through competitive markets and decentralized resource allocation. Hermes also robustly challenges communism’s practical failures, citing economic stagnation and authoritarian regimes historically associated with communist states. His argument that democratic capitalism can flexibly address inequalities and social welfare through regulation strengthens his position. Hermes rebuts Athena’s ethical concerns by framing capitalism’s imperfections as manageable within a democratic framework rather than systemic flaws.\n\nEvaluating both sides, Hermes demonstrates a more comprehensive grasp of both theory and practical outcomes, offering persuasive evidence that capitalism’s combination of innovation, economic growth, and adaptability currently produces more tangible benefits for society at large. Though Athena’s ethical considerations are important and well articulated, her vision of communism leans toward idealism that is less convincingly substantiated by historical and empirical realities. Hermes’ arguments acknowledge capitalism’s flaws while justifying them within a pragmatic, achievable framework, making his case stronger and more persuasive overall. Therefore, the winner of this debate is Hermes, as he presents a logically coherent, practically grounded, and ethically mindful defense of capitalism that effectively addresses and outweighs the critiques posed by Athena."
+    }
+  ],
+  "debater_profiles": {
+    "Daedalus": {
+      "total_debates": 1,
+      "average_rating": 4.0,
+      "rating_history": [
+        {
+          "rating": 4,
+          "topic": "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions",
+          "stance": "for",
+          "feedback": "Daedalus presented a strong ethical argument grounded in the ideals of sportsmanship and diplomacy, effectively emphasizing the symbolic power of cricket as a bridge for peace. The argument was well-structured with an appeal to international safety protocols, showing an awareness of practical technology-enabled security measures. However, the case could have been strengthened by acknowledging more fully the complex political realities and the ethical nuances of prioritizing moral obligation over national sovereignty.",
+          "timestamp": "2025-11-09T15:49:37.764370"
+        }
+      ],
+      "strengths": [
+        "strong",
+        "effective",
+        "well-structured"
+      ],
+      "weaknesses": [],
+      "topics_debated": [
+        "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions"
+      ],
+      "stance_performance": {
+        "for": [
+          4
+        ],
+        "against": []
+      }
+    },
+    "Zephyr": {
+      "total_debates": 1,
+      "average_rating": 4.0,
+      "rating_history": [
+        {
+          "rating": 4,
+          "topic": "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions",
+          "stance": "against",
+          "feedback": "Zephyr delivered a compelling argument rooted in prioritizing national security and sovereignty, which are essential ethical considerations often overlooked in debates about moral obligations in sports. The reasoning was grounded in the pragmatic and technological reality of security risks and geopolitical complexities. However, the argument sometimes leaned heavily on political sovereignty at the expense of exploring potential innovative solutions that technology or diplomacy might offer to balance safety with sportsmanship.",
+          "timestamp": "2025-11-09T15:49:37.764407"
+        }
+      ],
+      "strengths": [
+        "compelling",
+        "logical"
+      ],
+      "weaknesses": [],
+      "topics_debated": [
+        "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions"
+      ],
+      "stance_performance": {
+        "for": [],
+        "against": [
+          4
+        ]
+      }
+    },
+    "Athena": {
+      "total_debates": 1,
+      "average_rating": 4.0,
+      "rating_history": [
+        {
+          "rating": 4,
+          "topic": "Capitalism is better than communism",
+          "stance": "against",
+          "feedback": "Clear and well-structured argumentation, strong ethical framing, consistent focus on social justice, direct counterpoints to opponent’s claims, and thoughtful closing emphasizing sustainable and equitable considerations Could integrate more concrete examples or historical contexts to bolster communism’s practical strengths, and balance idealistic claims with acknowledgment of historical challenges more explicitly Athena’s arguments were lucid and consistently challenged the motion with a sound ethical critique of capitalism’s social costs and inequalities. The structure was coherent and rhetoric persuasive, appealing to fairness and collective well-being, though occasionally idealistic without substantial empirical examples. Her responsiveness effectively addressed the opponent’s points, maintaining a strong rebuttal posture.",
+          "timestamp": "2025-11-09T16:02:16.729144"
+        }
+      ],
+      "strengths": [
+        "strong",
+        "persuasive",
+        "effective",
+        "well-structured"
+      ],
+      "weaknesses": [],
+      "topics_debated": [
+        "Capitalism is better than communism"
+      ],
+      "stance_performance": {
+        "for": [],
+        "against": [
+          4
+        ]
+      }
+    },
+    "Hermes": {
+      "total_debates": 1,
+      "average_rating": 5.0,
+      "rating_history": [
+        {
+          "rating": 5,
+          "topic": "Capitalism is better than communism",
+          "stance": "for",
+          "feedback": "Exceptionally clear and logically consistent reasoning, well-supported with historical and practical evidence, engaging and confident rhetorical style, direct and tactful responses to opponent’s objections, and strong summarization emphasizing pragmatism and liberty Could explicitly acknowledge capitalism’s inequalities more upfront to demonstrate nuanced understanding, thereby strengthening credibility and ethical appeal Hermes presented a thoroughly structured, richly evidenced argument favoring capitalism, skillfully integrating economic principles with social realities. His rhetoric was persuasive and aligned with advocating personal freedom and innovation, and his rebuttals were incisive and comprehensive, making the pro position compelling overall.",
+          "timestamp": "2025-11-09T16:02:16.729199"
+        }
+      ],
+      "strengths": [
+        "strong",
+        "compelling",
+        "persuasive",
+        "logical"
+      ],
+      "weaknesses": [],
+      "topics_debated": [
+        "Capitalism is better than communism"
+      ],
+      "stance_performance": {
+        "for": [
+          5
+        ],
+        "against": []
+      }
+    }
+  },
+  "judge_profiles": {
+    "Atharva": {
+      "total_judgments": 1,
+      "average_rating_given": 4.0,
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 2,
+        "5": 0
+      },
+      "topics_judged": [
+        "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions"
+      ],
+      "verdict_history": [
+        {
+          "topic": "India should be morally obligated to participate in matches against Pakistan in ICC tournaments despite political tensions",
+          "verdict": "Both debaters present compelling arguments rooted in ethical considerations and the contextual realities surrounding cricket matches between India and Pakistan during ICC tournaments. Daedalus advocates for the moral obligation based on the transcendent power of sports to bridge divides, promote peace, and foster mutual respect despite political disagreements. This argument hinges on an ethical vision where sport operates above and beyond political conflicts, supported by international safety protocols that mitigate security concerns. Daedalus effectively frames participation as a proactive moral responsibility that exemplifies courage and leadership, contributing positively to diplomacy and international cooperation.\n\nConversely, Zephyr focuses on the primacy of national sovereignty, security, and the complexities of political tensions that cannot be easily set aside for symbolic sporting events. The argument for withdrawing from these matches underscores the risks posed to player and citizen safety, and the ethical imperative for a nation to prioritize its security and political integrity over sporting symbolism. Zephyr convincingly points out that forcing participation may undermine legitimate national interests and reduce sport to a political tool, thus betraying the spirit of sportsmanship itself. This argument emphasizes the pragmatic ethical stance that moral obligations must be contextualized within broader realities, respecting a nation’s sovereign decision-making.\n\nAfter weighing both perspectives, the winner is Daedalus. Their argument adheres closely to the ethical ideals of sportsmanship, peace, and international cooperation while addressing security concerns pragmatically through existing ICC safeguards. Daedalus’ framing of sport as a powerful ethical and diplomatic platform aligns with modern global values, emphasizing dialogue over division. Although Zephyr’s caution regarding security and sovereignty is vital, it leans toward a conservative stance that risks allowing political tensions to indefinitely hinder positive engagement. Daedalus’ vision for transcending conflict through sport presents a more forward-looking, ethically sound, and constructive approach consistent with the transformative power of technology-enabled international frameworks and diplomacy.",
+          "ratings": [
+            4,
+            4
+          ],
+          "timestamp": "2025-11-09T15:49:37.764450"
+        }
+      ],
+      "judging_patterns": {
+        "strict": 0,
+        "moderate": 0,
+        "lenient": 1
+      }
+    },
+    "Minerva": {
+      "total_judgments": 1,
+      "average_rating_given": 4.5,
+      "rating_distribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 1
+      },
+      "topics_judged": [
+        "Capitalism is better than communism"
+      ],
+      "verdict_history": [
+        {
+          "topic": "Capitalism is better than communism",
+          "verdict": "In this debate on whether capitalism is better than communism, both Athena (FOR) and Hermes (AGAINST) offer well-structured, persuasive arguments grounded in socio-economic theory and historical context. Athena contends that capitalism inherently produces inequality, exploitation, and environmental harm, arguing that communism's ideals of equitable resource distribution and collective well-being provide a stronger ethical foundation. Her arguments underscore the social justice dimension by highlighting capitalism’s failure to guarantee basic needs and the potential for communism to be democratically implemented without authoritarianism. Athena’s rebuttals effectively counter Hermes’ points by emphasizing the social costs of capitalism’s innovation and economic dynamism.\n\nOn the other hand, Hermes presents a compelling case for capitalism’s efficiency, innovation, and respect for individual freedom. He stresses capitalism’s proven track record in lifting millions out of poverty through competitive markets and decentralized resource allocation. Hermes also robustly challenges communism’s practical failures, citing economic stagnation and authoritarian regimes historically associated with communist states. His argument that democratic capitalism can flexibly address inequalities and social welfare through regulation strengthens his position. Hermes rebuts Athena’s ethical concerns by framing capitalism’s imperfections as manageable within a democratic framework rather than systemic flaws.\n\nEvaluating both sides, Hermes demonstrates a more comprehensive grasp of both theory and practical outcomes, offering persuasive evidence that capitalism’s combination of innovation, economic growth, and adaptability currently produces more tangible benefits for society at large. Though Athena’s ethical considerations are important and well articulated, her vision of communism leans toward idealism that is less convincingly substantiated by historical and empirical realities. Hermes’ arguments acknowledge capitalism’s flaws while justifying them within a pragmatic, achievable framework, making his case stronger and more persuasive overall. Therefore, the winner of this debate is Hermes, as he presents a logically coherent, practically grounded, and ethically mindful defense of capitalism that effectively addresses and outweighs the critiques posed by Athena.",
+          "ratings": [
+            4,
+            5
+          ],
+          "timestamp": "2025-11-09T16:02:16.729258"
+        }
+      ],
+      "judging_patterns": {
+        "strict": 0,
+        "moderate": 0,
+        "lenient": 1
+      }
+    }
+  }
+}
