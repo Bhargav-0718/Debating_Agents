@@ -1,5 +1,11 @@
 # 🎙️ AI Debate Simulator
 
+## 🔗 Live Demo
+
+[Open the deployed app](https://debatingagents-3kj8kjkisz8kfjezudstjv.streamlit.app/)
+
+Access the running Streamlit instance to try debates instantly without local setup. Make sure to supply valid API keys in your own environment if you clone the repo; the hosted demo uses securely configured keys not included in the repository.
+
 An intelligent debate system where AI agents engage in structured debates, learn from past performances, and continuously improve their argumentation skills.
 
 ## 🌟 Features
